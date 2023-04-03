@@ -15,6 +15,9 @@ public class Notification implements Serializable {
     private Instant moment;
     private Boolean read;
     private String route;
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Notification() {
     }
