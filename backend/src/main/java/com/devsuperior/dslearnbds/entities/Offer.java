@@ -3,6 +3,9 @@ package com.devsuperior.dslearnbds.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "tb_offer")
 public class Offer implements Serializable {
@@ -16,6 +19,8 @@ public class Offer implements Serializable {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+    @OneToMany(mappedBy = "offer")
+    private List<Resource> resources = new ArrayList<>();
 
     public Course getCourse() {
         return course;
@@ -46,6 +51,10 @@ public class Offer implements Serializable {
     @Override
     public int hashCode() {
         return id.hashCode();
+    }
+
+    public List<Resource> getResources() {
+        return resources;
     }
 
     public Long getId() {
