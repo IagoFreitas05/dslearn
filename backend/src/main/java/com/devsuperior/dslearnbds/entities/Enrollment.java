@@ -3,6 +3,9 @@ package com.devsuperior.dslearnbds.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_enrollment")
 public class Enrollment implements Serializable {
@@ -15,6 +18,8 @@ public class Enrollment implements Serializable {
     private Instant refundMoment;
     private boolean available;
     private boolean onlyUpdate;
+    @ManyToMany(mappedBy = "enrollmentsDone")
+    private Set<Lesson> lessonsDone = new HashSet<>();
     public Enrollment() {
     }
 
