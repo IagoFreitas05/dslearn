@@ -30,6 +30,10 @@ public class Notification implements Serializable {
         this.route = route;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -54,7 +58,7 @@ public class Notification implements Serializable {
         this.moment = moment;
     }
 
-    public Boolean getRead() {
+    public Boolean isRead() {
         return read;
     }
 
